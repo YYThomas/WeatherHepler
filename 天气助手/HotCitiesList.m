@@ -1,15 +1,15 @@
 //
-//  hotCitiesList.m
+//  HotCitiesList.m
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
 //  Copyright © 2017年 俞益. All rights reserved.
 //
 
-#import "hotCitiesList.h"
+#import "HotCitiesList.h"
 #define Width self.frame.size.width
 #define Height self.frame.size.height
-@implementation hotCitiesList
+@implementation HotCitiesList
 - (instancetype)init
 {
     self = [super init];

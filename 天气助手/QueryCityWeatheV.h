@@ -1,5 +1,5 @@
 //
-//  selectCityView.h
+//  QueryCityWeatheV.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
@@ -7,21 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "hotCitiesList.h"
-@interface selectCityView : UIView
+#import "HotCitiesList.h"
+#import "BBHoldToSpeakButton.h"
+@interface QueryCityWeatheV : UIView
 @property (strong, nonatomic) IBOutlet UITextField *cityTextField;
 @property (strong, nonatomic) IBOutlet UIButton *search;
-@property (strong, nonatomic) IBOutlet UIButton *iflytekSeach;
-@property(strong,nonatomic)hotCitiesList *citiesList;
+@property (strong, nonatomic) IBOutlet BBHoldToSpeakButton *iflytekSeach;
+
+@property (strong, nonatomic) IBOutlet UIButton *checkHistroy;
+@property(strong,nonatomic)HotCitiesList *citiesList;
 @property (nonatomic, assign) id delegate;
-+(instancetype)selectCityView;
-@end
-
-@protocol selectCityViewDelegate <NSObject>
-
-@optional
-
-//- (void)mhUserInfoCellDidCheckUserInfo:(MHUserInfoCell *)cell;
-
-
++(instancetype)queryCityWeatheV;
 @end

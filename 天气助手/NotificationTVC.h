@@ -1,5 +1,5 @@
 //
-//  reminderTableViewCell.h
+//  NotificationTVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface reminderTableViewCell : UITableViewCell
+@interface NotificationTVC : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *dayStr;
 @property (strong, nonatomic) IBOutlet UILabel *timeStr;
 @property (strong, nonatomic) IBOutlet UILabel *weekStr;

@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
+#import "QueryCityWeatheVC.h"
+#import "HistoryCitiesWeatherVC.h"
+#import "CityWeatherVC.h"
+#import "iflyMSC/IFlyMSC.h"
+#import <UserNotifications/UserNotifications.h>
+#define APPID_VALUE           @"5979519f"
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -17,6 +22,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] init];
+    self.window.frame = [UIScreen mainScreen].bounds;
+    //判断是否有查询记录
+    NSMutableArray *historyArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"history"];
+    if (historyArray.count == 0) {
+        self.window.rootViewController = [[QueryCityWeatheVC alloc] init];
+    }else{
+        self.window.rootViewController = [[HistoryCitiesWeatherVC alloc] init];
+    }
+    
+    [self.window makeKeyAndVisible];
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert|UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            NSLog(@"YY:允许通知触发");
+        }else{
+            NSLog(@"YY:不允许通知触发");
+        }
+    }];
+    
+    //创建语音配置,appid必须要传入，仅执行一次则可
+    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",APPID_VALUE];
+    
+    //所有服务启动前，需要确保执行createUtility
+    [IFlySpeechUtility createUtility:initString];
     return YES;
 }
 
@@ -47,5 +79,22 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+//用于后台和程序退出，以前的是分开写的
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    NSString *key = [userInfo objectForKey:@"cityName"];
+    CityWeatherVC *cw = [[CityWeatherVC alloc] init];
+    self.window.rootViewController = cw;
+    [self.window makeKeyAndVisible];
+    [cw setupFromSandBoxWithKey:key];
+    completionHandler();//必须要写否则要报错
+//    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+//        NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
+//        
+//    }
+//    else {
+//        // 判断为本地通知
+//        NSLog(@"iOS10 收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo);
+//    }
+}
 @end

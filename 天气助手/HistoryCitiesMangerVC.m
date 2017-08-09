@@ -6,18 +6,18 @@
 //  Copyright © 2017年 俞益. All rights reserved.
 //
 
-#import "settingViewController.h"
-#import "cityViewCell.h"
-#import "reminderViewController.h"
-#import "historyCitiesViewController.h"
+#import "HistoryCitiesMangerVC.h"
+#import "CityTVC.h"
+#import "NotificationManagerVC.h"
+#import "HistoryCitiesWeatherVC.h"
 #import "QueryCityWeatheVC.h"
-@interface settingViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HistoryCitiesMangerVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *backBtn;
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UITableView *cityTableView;
 @end
 
-@implementation settingViewController
+@implementation HistoryCitiesMangerVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +35,7 @@
     return array.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    cityViewCell *cell = [[cityViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    CityTVC *cell = [[CityTVC alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTap:)]];
     NSArray *array = [[NSUserDefaults standardUserDefaults] valueForKey:@"history"];
     cell.textLabel.text = array[indexPath.row];
@@ -44,7 +44,7 @@
 
 -(void)longTap:(UILongPressGestureRecognizer*)recognizer{
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        cityViewCell *cell = (cityViewCell *)recognizer.view;
+        CityTVC *cell = (CityTVC *)recognizer.view;
         [cell becomeFirstResponder];
         UIMenuController *menu = [UIMenuController sharedMenuController];
         UIMenuItem *deleteItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(deleteItemClick:)];
@@ -73,7 +73,7 @@
 
 -(void)setReminderClick:(id)sender{
     NSInteger index = [self.cityTableView indexPathForSelectedRow].row;
-    reminderViewController *rmVC = [[reminderViewController alloc] init];
+    NotificationManagerVC *rmVC = [[NotificationManagerVC alloc] init];
     NSArray *array = [[NSUserDefaults standardUserDefaults] valueForKey:@"history"];
     rmVC.cityName = array[index];
     [self presentViewController:rmVC animated:YES completion:nil];
@@ -83,7 +83,7 @@
     return YES;
 }
 - (void)pushToHistoryVC{
-    [self presentViewController:[[historyCitiesViewController alloc] init] animated:YES completion:nil];
+    [self presentViewController:[[HistoryCitiesWeatherVC alloc] init] animated:YES completion:nil];
 }
 - (void)pushToSearchVC{
     [self presentViewController:[[QueryCityWeatheVC alloc] init] animated:YES completion:nil];

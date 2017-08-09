@@ -1,5 +1,5 @@
 //
-//  detailWeatherView.h
+//  DetailWeatherV.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface detailWeatherView : UIView
+@interface DetailWeatherV : UIView
 @property (strong, nonatomic) IBOutlet UIButton *returnBtn;
 @property (strong, nonatomic) IBOutlet UILabel *cityName;
 @property (strong, nonatomic) IBOutlet UILabel *date;
@@ -20,5 +20,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *windDirection;
 @property (strong, nonatomic) IBOutlet UILabel *windStrength;
 
-+(instancetype)detailWeatherView;
++(instancetype)detailWeatherV;
 @end

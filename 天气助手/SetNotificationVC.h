@@ -1,5 +1,5 @@
 //
-//  setReminderViewController.h
+//  SetNotificationVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/28.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface setReminderViewController : UIViewController
+@interface SetNotificationVC : UIViewController
 @property(nonatomic,assign)NSString *cityName;
 @end

@@ -1,5 +1,5 @@
 //
-//  reminderViewController.h
+//  NotificationManagerVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/28.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface reminderViewController : UIViewController
+@interface NotificationManagerVC : UIViewController
 @property(nonatomic,assign)NSString *cityName;
 @end

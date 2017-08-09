@@ -1,5 +1,5 @@
 //
-//  cityViewCell.h
+//  CityTVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/27.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface cityViewCell : UITableViewCell
+@interface CityTVC : UITableViewCell
 //@property(nonatomic,assign)id delegate;
 @end
 

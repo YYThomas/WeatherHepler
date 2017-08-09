@@ -1,29 +1,29 @@
 //
-//  reminderViewController.m
+//  NotificationManagerVC.m
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/28.
 //  Copyright © 2017年 俞益. All rights reserved.
 //
 
-#import "reminderViewController.h"
+#import "NotificationManagerVC.h"
 #import "NotificationTVC.h"
-#import "settingViewController.h"
 #import "SetNotificationVC.h"
-@interface reminderViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "HistoryCitiesMangerVC.h"
+@interface NotificationManagerVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *backBtn;
 @property (strong, nonatomic) IBOutlet UIButton *addReminder;
 @property (strong, nonatomic) IBOutlet UITableView *reminderTableView;
 @end
 
-@implementation reminderViewController
+@implementation NotificationManagerVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.reminderTableView.dataSource = self;
     self.reminderTableView.delegate = self;
     [self.backBtn addTarget:self action:@selector(pushToSettingVC) forControlEvents:UIControlEventTouchUpInside];
-    [self.addReminder addTarget:self action:@selector(pushToSetReminderVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.addReminder addTarget:self action:@selector(pushToSetNotificationVC) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -77,10 +77,10 @@
     [self.reminderTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 -(void)pushToSettingVC{
-    [self presentViewController:[[settingViewController alloc] init] animated:NO completion:nil];
+    [self presentViewController:[[HistoryCitiesMangerVC alloc] init] animated:NO completion:nil];
 }
--(void)pushToSetReminderVC{
-    reminderViewController *srVC = [[reminderViewController alloc] init];
+-(void)pushToSetNotificationVC{
+    SetNotificationVC *srVC = [[SetNotificationVC alloc] init];
     srVC.cityName = self.cityName;
     [self presentViewController:srVC animated:NO completion:nil];
 }

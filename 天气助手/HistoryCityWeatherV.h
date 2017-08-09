@@ -1,5 +1,5 @@
 //
-//  singleView.h
+//  HistoryCityWeatherV..h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/27.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface singleView : UIView
-+(instancetype)singleView;
+@interface HistoryCityWeatherV : UIView
++(instancetype)historyCityWeatherV;
 @property (strong, nonatomic) IBOutlet UILabel *cityName;
 @property (strong, nonatomic) IBOutlet UILabel *weather;
 @property (strong, nonatomic) IBOutlet UILabel *temp;

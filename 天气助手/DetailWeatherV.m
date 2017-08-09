@@ -6,11 +6,10 @@
 //  Copyright © 2017年 俞益. All rights reserved.
 //
 
-#import "detailWeatherView.h"
-#import "cityWeatherViewController.h"
-@implementation detailWeatherView
-+(instancetype)detailWeatherView{
-    return [[NSBundle mainBundle] loadNibNamed:@"detailWeatherView" owner:nil options:nil].lastObject;
+#import "DetailWeatherV.h"
+@implementation DetailWeatherV
++(instancetype)detailWeatherV{
+    return [[NSBundle mainBundle] loadNibNamed:@"DetailWeatherV" owner:nil options:nil].lastObject;
 }
 
 @end

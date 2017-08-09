@@ -1,5 +1,5 @@
 //
-//  hotCitiesList.h
+//  HotCitiesList.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface hotCitiesList : UIView
+@interface HotCitiesList : UIView
 @property(assign,nonatomic)id delegate;
 -(instancetype)init;
 @end
-@protocol hotCitiesListDelegate <NSObject>
+@protocol HotCitiesListDelegate <NSObject>
 
 -(void)pushToVC:(NSString *)str;
 

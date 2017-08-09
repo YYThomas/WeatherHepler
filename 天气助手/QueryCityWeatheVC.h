@@ -1,5 +1,5 @@
 //
-//  searchCityViewController.h
+//  QueryCityWeatheVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface searchCityViewController : UIViewController
+#import "iflyMSC/iflyMSC.h"
+@interface QueryCityWeatheVC : UIViewController <IFlySpeechRecognizerDelegate>
 
 @end

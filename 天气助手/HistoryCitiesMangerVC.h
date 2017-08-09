@@ -1,5 +1,5 @@
 //
-//  settingViewController.h
+//  HistoryCitiesMangerVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/27.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface settingViewController : UIViewController
+@interface HistoryCitiesMangerVC : UIViewController
 
 @end

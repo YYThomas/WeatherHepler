@@ -1,5 +1,5 @@
 //
-//  cityWeatherViewController.h
+//  CityWeatherVC.h
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "detailWeatherView.h"
-@interface cityWeatherViewController : UIViewController
+#import "DetailWeatherV.h"
+@interface CityWeatherVC : UIViewController
 @property(nonatomic,assign)NSString *cityName;
-@property(nonatomic,strong)detailWeatherView *dtWeatherView;
+@property(nonatomic,strong)DetailWeatherV *dtWeatherView;
 -(void)setupWithCityName;
 -(void)setupFromSandBoxWithKey:(NSString *)key;
 @end

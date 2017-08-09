@@ -1,19 +1,19 @@
 //
-//  selectCityView.m
+//  QueryCityWeatheV.m
 //  天气助手
 //
 //  Created by 俞益 on 2017/7/26.
 //  Copyright © 2017年 俞益. All rights reserved.
 //
 
-#import "selectCityView.h"
+#import "QueryCityWeatheV.h"
 #define padding 40
-@interface selectCityView()
+@interface QueryCityWeatheV()
 @end
-@implementation selectCityView
+@implementation QueryCityWeatheV
 
-+(instancetype)selectCityView{
-    return [[NSBundle mainBundle] loadNibNamed:@"selectCityView" owner:nil options:nil].lastObject;
++(instancetype)queryCityWeatheV{
+    return [[NSBundle mainBundle] loadNibNamed:@"QueryCityWeatheV" owner:nil options:nil].lastObject;
 }
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -22,8 +22,8 @@
 
 -(void)setConstraitsForView{
     [self setConstraitsForSearchBar];
-//    [self setConstraitsForFlytekBar];
     [self setConstraitsForcitiesList];
+    //[self.checkHistroy addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)setConstraitsForSearchBar{
     self.cityTextField.placeholder = @"输入城市名称";
@@ -53,7 +53,7 @@
 
 
 -(void)setConstraitsForcitiesList{
-    self.citiesList = [[hotCitiesList alloc] init];
+    self.citiesList = [[HotCitiesList alloc] init];
     [self addSubview:self.citiesList];
     [self.citiesList mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.cityTextField.mas_bottom);
