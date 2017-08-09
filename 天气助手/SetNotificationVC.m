@@ -21,7 +21,6 @@
     [super viewDidLoad];
     [self.saveBtn addTarget:self action:@selector(clickSaveBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.backBtn addTarget:self action:@selector(pushToRemindVC) forControlEvents:UIControlEventTouchUpInside];
-    NSLog(@"YYDebug:This a test");
 }
 
 -(void)clickSaveBtn{
